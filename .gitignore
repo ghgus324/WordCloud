@@ -1,2 +1,13 @@
 # git에 업로드할때 업로드 하지 않을 파일을 명시함
+# mac,linux 사용자는 git 자동으로 설치가 되어 있음 window 사용자는 http://git-scm.com/download/win 경로에서 git 설치가능
+# 1. github에서 repository생성
+# 2. VS Code 터미널창에 git init 
+# 3. git add .  전체문서를 다 반영할수 있도록 (.까지 붙여야함)
+# 4. git commit -m "Intialize React Project" //commit -m 커밋할때 메세지
+# 5. git remote add origin 깃허브Repository주소 <=remote 설정을 할수 있음
+# 6. git push --set-upstream origin master <=git에 푸시해서 반영함
+
 node_modules
+build
+
+# 디자인은: https://material-ui.com/getting-started/installation/ 에서 설치 후 사용
