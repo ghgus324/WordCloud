@@ -1,0 +1,29 @@
+ mac,linux 사용자는 git 자동으로 설치가 되어 있음 window 사용자는 http://git-scm.com/download/win 경로에서 git 설치가능
+ 1. github에서 repository생성
+ 2. VS Code 터미널창에 git init 
+ 3. git add .  전체문서를 다 반영할수 있도록 (.까지 붙여야함)
+ 4. git commit -m "Intialize React Project" //commit -m 커밋할때 메세지
+ 5. git remote add origin 깃허브Repository주소 <=remote 설정을 할수 있음
+ 6. git push --set-upstream origin master <=git에 푸시해서 반영함
+
+
+ 디자인은: https://material-ui.com/getting-started/installation/ 에서 설치 후 사용
+ 1. yarn add @material-ui/core  <=@가 붙은 건 최신버전 없으면 옛날 버전
+
+만들어진 React프로젝트를 빌드를 한다음 내보내기해서 그 파일을 Firebase의 hosting서버에 올리면 배포가 됨
+ 1.build를 하기위해서 yarn add --dev copy-webpack-plugin을 설치
+ 2.webpack.config.js에 plugins에 CopyWebpackPlugin코드 작성
+ 3.console창에서 firebase명령어를 사용하기 위해서 yarn add firebase-tools 설치
+ 4.console창에 yarn build 명령어 사용
+ 5.firebase init 명령어를 통해 firebase 설정을 함 =>안 될 경우 1.yarn firebase login 2.yarn firebase init functions
+
+ firebase init 설정 방법
+ 1.Are you ready to proceed? y
+ 2.화살표를 Hosting까지 내린 뒤 space 키 누른 후 (*)의 *체크가 된다음 enter키  
+ 3.어떤 프로젝트(firebase의 프로젝트)랑 연동할 것인지 => 데이터베이스랑 같은 프로젝트로 설정함
+ 4.What do you want to use as your public directory? (public) 서버에 올릴 파일을 물어봄 => build 
+ 5.Configure as a single-page app (rewrite all urls to /index.html)? (y/N) 싱글페이지 기반인지 물어봄 => y
+ 6.build/index.html overWrite? 덥어씌울껀지 물어본다면 n  이유는 yarn build하면서 index.html 생성시킴 => 만약에 안물어보거나 잘못 yes눌러서 했다면 yarn build 다시 명령어 입력하면 바뀜
+ main.js는 yarn build를 하면 리엑트프로젝트를 자동으로 압축해서 바로 사용할 수 있도록 만들어 줌
+ 7.해당 프로젝트를 특정한 웹서버에 올려주는 명령어 입력 => firebase deploy, yarn firebase deploy
+ 8.console창에 있는 Hosting URL: https://word-cloud-30af4.firebaseapp.com 에 접속하면 만든 프로젝트가 그대로 배포되어 있는 것을 볼 수 있음
