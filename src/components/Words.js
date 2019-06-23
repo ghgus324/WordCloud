@@ -12,7 +12,6 @@ import DialogAction from '@material-ui/core/DialogActions'; //Dialog내에서 �
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField'; //사용자가 내용을 채울수 있는 것
-import { resetWarningCache } from 'prop-types';
 
 const styles = theme => ({
     
