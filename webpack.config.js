@@ -1,7 +1,8 @@
 //webpack 사용 방법 명시
 'use strict'
 const path = require('path'); //path라는 라이브러리 불러옴
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+ 
 module.exports = {
     //entry ponint
     entry: {
@@ -18,7 +19,12 @@ module.exports = {
             loaders: 'babel-loader'
         }]
     },
-    plugins:[],
+    plugins:[
+        new CopyWebpackPlugin([{
+            context:'./public',
+            from:'*.*'
+        }])
+    ],
     devServer: {
         contentBase: './public', //기본적으로 사용자가 보게 되는 문서 위치
         host: 'localhost' ,
