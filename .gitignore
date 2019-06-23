@@ -11,3 +11,5 @@ node_modules
 build
 
 # 디자인은: https://material-ui.com/getting-started/installation/ 에서 설치 후 사용
+# 1. yarn add @material-ui/core  <=@가 붙은 건 최신버전 없으면 옛날 버전
+# 

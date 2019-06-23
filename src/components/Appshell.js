@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link as RouterLink} from 'react-router-dom';//밑에 Link랑 충돌 안나게 RouterLink이름으로 사용
+import Link from '@material-ui/core/Link';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar'; //navigation bar
 import Drawer from '@material-ui/core/Drawer'; //navigation 이 보여질 수 있도록 하기 위해서
@@ -16,31 +18,49 @@ const styles = {
 }
 
 class AppShell extends React.Component {
-    
-    constructor(props){
+
+    constructor(props) {
         super(props);
         this.state = {
             toggle: false
         }
     }
-    
-    handleDrawerToggle = () => this.setState({toggle: !this.state.toggle})
+
+    handleDrawerToggle = () => this.setState({ toggle: !this.state.toggle })
 
     render() {
-        const {classes} = this.props;      
+        const { classes } = this.props;
         return (
-            <div className={classes.root}>
-                <AppBar position='static'>
-                    <IconButton className={classes.menuButton} color='inherit' onClick={this.handleDrawerToggle}>
-                        <MenuIcon/>
-                    </IconButton>
-                </AppBar>
-                <Drawer open={this.state.toggle}>
-                    <MenuItem onClick ={this.handleDrawerToggle}>Home</MenuItem>
-                    <MenuItem onClick ={this.handleDrawerToggle}>Home 2</MenuItem>
-                </Drawer>
+            <div>
+                <div className={classes.root}>
+                    <AppBar position='static'>
+                        <IconButton className={classes.menuButton} color='inherit' onClick={this.handleDrawerToggle}>
+                            <MenuIcon />
+                        </IconButton>
+                    </AppBar>
+                    <Drawer open={this.state.toggle}>
+                        <MenuItem onClick={this.handleDrawerToggle}>
+                        <Link component={RouterLink} to="/">
+                            Home
+                        </Link>
+                        </MenuItem>
+                        <MenuItem onClick={this.handleDrawerToggle}>
+                        <Link component={RouterLink} to="/texts">
+                            Texts
+                        </Link>
+                        </MenuItem>
+                        <MenuItem onClick={this.handleDrawerToggle}>
+                        <Link component={RouterLink} to="/words">
+                            Words
+                        </Link>
+                        </MenuItem>
+                    </Drawer>
+                </div>
+                <div id="content" style={{ margin: 'auto', marginTop:'20px' }}>
+                    {React.cloneElement(this.props.children)}
+                </div>
             </div>
-            )
+        )
     }
 }
 export default withStyles(styles)(AppShell);
