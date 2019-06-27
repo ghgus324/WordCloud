@@ -17,7 +17,11 @@ module.exports = {
             test: /\.js$/,
             include: path.resolve(__dirname, './src'),  //모든 코드는 src안에 나둠         
             loaders: 'babel-loader'
-        }]
+        }, {
+            test: /\.css$/,
+            loader: 'style-loader!css-loader'
+        }
+    ]
     },
     plugins:[
         new CopyWebpackPlugin([{

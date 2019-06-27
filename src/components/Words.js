@@ -100,6 +100,12 @@ class Words extends React.Component {
         let nextState = {};
         nextState[e.target.name] = e.target.value;
         this.setState(nextState);
+        if(e.target.value< 1){
+            this.setState({weight: 1});
+        }else if(e.target.value>9){
+            this.setState({weight: 9});
+        }
+
     }
 
     //사용자가 단어 추가 버튼을 눌렀을 때
@@ -158,7 +164,7 @@ class Words extends React.Component {
                     {/* DialogContent는 Dialog 내용이 들어감 */}
                     <DialogContent>
                         <TextField label="단어" type="text" name="word" value={this.state.word} onChange={this.handleValueChange}/><br/>
-                        <TextField label="가중치" type="text" name="weight" value={this.state.weight} onChange={this.handleValueChange}/><br/>                   
+                        <TextField label="가중치(1 ~ 9)" type="number" name="weight" value={this.state.weight} onChange={this.handleValueChange}/><br/>                   
                     </DialogContent>
                     
                     {/* DialogAction은 각종 버튼이 들어감 */}

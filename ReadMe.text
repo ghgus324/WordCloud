@@ -9,6 +9,7 @@
 
  디자인은: https://material-ui.com/getting-started/installation/ 에서 설치 후 사용
  1. yarn add @material-ui/core  <=@가 붙은 건 최신버전 없으면 옛날 버전
+ 2. font및 디자인 => yarn add style-loader css-loader
 
 만들어진 React프로젝트를 빌드를 한다음 내보내기해서 그 파일을 Firebase의 hosting서버에 올리면 배포가 됨
  1.build를 하기위해서 yarn add --dev copy-webpack-plugin을 설치
